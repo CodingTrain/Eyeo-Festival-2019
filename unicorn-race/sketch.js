@@ -65,7 +65,7 @@ function setup() {
   let fe = ml5.featureExtractor('MobileNet');
   classifier = fe.classification();
   const checkpoint =
-    'https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-3/model.json';
+    'https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-4/model.json';
 
   classifier.load(checkpoint, function() {
     classifier.classify(video, gotResult);
@@ -121,7 +121,6 @@ function mousePressed() {
   const data = {
     image64: base64data.substring(22, base64data.length)
   };
-  console.log(data);
   httpPost('http://localhost:3000/tweet', 'json', data, function(response) {
     console.log(response);
   });
