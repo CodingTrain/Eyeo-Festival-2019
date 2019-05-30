@@ -56,9 +56,10 @@ async function listen() {
     }
   );
 }
+let canvas;
 
 function setup() {
-  createCanvas(889, 500);
+  canvas = createCanvas(889, 500);
   video = createCapture(VIDEO);
   video.size(320, 240);
   let fe = ml5.featureExtractor('MobileNet');
@@ -113,4 +114,15 @@ function draw() {
       console.log('WIN');
     }
   }
+}
+
+function mousePressed() {
+  const base64data = canvas.elt.toDataURL();
+  const data = {
+    image64: base64data.substring(22, base64data.length)
+  };
+  console.log(data);
+  httpPost('http://localhost:3000/tweet', 'json', data, function(response) {
+    console.log(response);
+  });
 }
