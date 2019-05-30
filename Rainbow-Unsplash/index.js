@@ -13,7 +13,7 @@ const unsplash = new Unsplash({
 
 async function download(url, name) {
   const response = await fetch(url);
-  const dest = fs.createWriteStream(`./images/${name}.png`);
+  const dest = fs.createWriteStream(`./images/regular/${name}.png`);
   response.body.pipe(dest);
 }
 
@@ -26,7 +26,8 @@ async function getAll() {
       const json = await response.json();
       const photos = json['results'];
       for (let j = 0; j < photos.length; j++) {
-        await download(photos[j].links.download, photos[j].id);
+        // await download(photos[j].links.download, photos[j].id);
+        await download(photos[j].urls.regular, photos[j].id);
       }
       // fs.writeFileSync(`pages/data_${i}.json`, JSON.stringify(json, null, 2));
       all = all.concat(json.results);
