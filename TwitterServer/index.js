@@ -1,8 +1,3 @@
-// A2Z F17
-// Daniel Shiffman
-// http://shiffman.net/a2z
-// https://github.com/shiffman/A2Z-F17
-
 // Using the Twit node package
 // https://github.com/ttezel/twit
 const Twit = require('twit');
