@@ -14,7 +14,8 @@ const config = {
 };
 
 const app = express();
-app.listen(3000, () => console.log('listening at 3000'));
+const port = 3001;
+app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static('public'));
 app.use(express.json({ limit: '10mb' }));
 
@@ -38,14 +39,21 @@ app.post('/tweet', (request, res) => {
   const data = request.body;
   //console.log(data.image64);
   // Upload the media
-  T.post('media/upload', { media_data: data.image64 }, uploaded);
+
+  const index = data.image64.indexOf('base64') + 6;
+  const base64data = data.image64.substring(index, data.image64.length);
+
+  T.post('media/upload', { media_data: base64data }, uploaded);
 
   function uploaded(err, data, response) {
     // Now we can reference the media and post a tweet
     // with the media attached
     console.log(data);
     var mediaIdStr = data.media_id_string;
-    var params = { status: '#eyeotest', media_ids: [mediaIdStr] };
+    var params = {
+      status: '#eyeotest StyleGAN Cat from @runwayml via p5.js via node.js',
+      media_ids: [mediaIdStr]
+    };
     // Post tweet
     T.post('statuses/update', params, tweeted);
   }
