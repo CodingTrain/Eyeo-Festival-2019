@@ -20,7 +20,8 @@ function generate() {
     console.log(data);
 
     const imageData = {
-      image64: data.image
+      image64: data.image,
+      status: '#eyeotest landscape image via @runwayml and @p5xjs'
     };
     httpPost('http://localhost:3001/tweet', 'json', imageData, function(response) {
       console.log(response);

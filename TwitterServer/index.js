@@ -36,12 +36,12 @@ const fs = require('fs');
 // console.log(b64content);
 
 app.post('/tweet', (request, res) => {
-  const data = request.body;
-  //console.log(data.image64);
   // Upload the media
+  const image64 = request.body.image64;
+  const status = request.body.status;
 
-  const index = data.image64.indexOf('base64') + 6;
-  const base64data = data.image64.substring(index, data.image64.length);
+  const index = image64.indexOf('base64') + 6;
+  const base64data = image64.substring(index, image64.length);
 
   T.post('media/upload', { media_data: base64data }, uploaded);
 
@@ -51,7 +51,7 @@ app.post('/tweet', (request, res) => {
     console.log(data);
     var mediaIdStr = data.media_id_string;
     var params = {
-      status: '#eyeotest StyleGAN Cat from @runwayml via p5.js via node.js',
+      status: status,
       media_ids: [mediaIdStr]
     };
     // Post tweet
