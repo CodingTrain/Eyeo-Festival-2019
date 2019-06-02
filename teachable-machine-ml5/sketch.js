@@ -1,52 +1,34 @@
-const modelJson = 'https://storage.googleapis.com/tm-speech-commands/eyeo-sound-test/model.json';
-const metadataJson =
-  'https://storage.googleapis.com/tm-speech-commands/eyeo-sound-test/metadata.json';
+const modelJson = 'https://storage.googleapis.com/tm-speech-commands/eye-test-happy/model.json';
+const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-yining/model.json';
 
-const recognizer = speechCommands.create('BROWSER_FFT', undefined, modelJson, metadataJson);
-
-let featureExtractor;
-let classifier;
+let soundClassifier;
+let imageClassifier;
 let video;
 let canvas;
+let resultsP1;
+let resultsP2;
+
+function preload() {
+  video = createCapture(VIDEO);
+  video.hide();
+  video.size(320, 240);
+  soundClassifier = ml5.soundClassifier(modelJson);
+  imageClassifier = ml5.imageClassifier(checkpoint);
+}
 
 function setup() {
   canvas = createCanvas(320, 240);
-  video = createCapture(VIDEO, function() {
-    console.log('video ready!');
-  });
-  video.hide();
-  video.size(320, 240);
-  featureExtractor = ml5.featureExtractor('MobileNet');
-  const options = { numLabels: 3 };
-  classifier = featureExtractor.classification(options);
-  const checkpoint =
-    'https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-2/model.json';
-  classifier.load(checkpoint, function() {
-    console.log('model loaded');
-    classify();
-  });
-
-  loadMyModel();
-  async function loadMyModel() {
-    await recognizer.ensureModelLoaded();
-    const labels = recognizer.wordLabels();
-    recognizer.listen(
-      async result => {
-        console.log(labels[0], result.scores[0]);
-        console.log(labels[1], result.scores[1]);
-        console.log(labels[2], result.scores[2]);
-      },
-      {
-        probabilityThreshold: 0.5,
-        overlapFactor: 0.75
-      }
-    );
-  }
+  resultsP1 = createP('...');
+  resultsP2 = createP('...');
+  //  Classify the current video frame.
+  classifyImage();
+  // Classify the sound from microphone in real time
+  soundClassifier.classify(gotSoundResults);
 }
 
 // Classify the current frame.
-function classify() {
-  classifier.classify(canvas, gotResults);
+function classifyImage() {
+  imageClassifier.classify(canvas, gotImageResults);
 }
 
 function draw() {
@@ -57,7 +39,12 @@ function draw() {
 }
 
 // Show the results
-function gotResults(err, results) {
-  console.log(results[0].label);
-  classify();
+function gotImageResults(err, results) {
+  resultsP1.html('Image Label: ' + results[0].label + ' Confidence: ' + results[0].confidence);
+  classifyImage();
+}
+
+// A function to run when Sound Classifier get any errors and the results
+function gotSoundResults(err, results) {
+  resultsP2.html('Sound Label: ' + results[0].label + ' Confidence: ' + results[0].confidence);
 }
