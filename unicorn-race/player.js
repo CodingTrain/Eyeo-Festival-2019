@@ -9,8 +9,6 @@ class Player {
   }
 
   show() {
-    // fill(255);
-    // ellipse(this.x,this.y,50);
     imageMode(CENTER);
     image(this.img, this.x, this.y, this.r, this.r);
     textSize(64);
