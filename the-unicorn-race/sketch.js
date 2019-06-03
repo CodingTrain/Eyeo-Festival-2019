@@ -22,10 +22,10 @@ function setup() {
   let canvas = createCanvas(899, 500);
   imageClassifier.classify(video, gotImageResults);
   soundClassifier.classify(gotSoundResults);
-  players[0] = new Player(100, images[0], 'YG');
-  players[1] = new Player(200, images[1], 'YINING');
-  players[2] = new Player(300, images[2], 'JENNA');
-  players[3] = new Player(400, images[3], 'audience');
+  players[0] = new Player(100, images[0], 'player 1');
+  players[1] = new Player(200, images[1], 'player 2');
+  players[2] = new Player(300, images[2], 'player 3');
+  players[3] = new Player(400, images[3], 'player 4');
 }
 
 function draw() {
