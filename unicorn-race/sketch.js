@@ -27,6 +27,7 @@ function setup() {
   players[2] = new Player(300, images[2], 'JENNA');
   players[3] = new Player(400, images[3], 'audience');
 }
+
 function draw() {
   background(0);
   imageMode(CORNER);
