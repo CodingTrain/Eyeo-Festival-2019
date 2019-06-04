@@ -1,6 +1,5 @@
 const modelJson = 'https://storage.googleapis.com/tm-speech-commands/eye-test-happy/model.json';
-const checkpoint =
-  'https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-yining/model.json';
+const checkpoint = 'https://storage.googleapis.com/tm-pro-a6966.appspot.com/eyeo-test-yining/model.json';
 
 let soundClassifier;
 let imageClassifier;
