@@ -14,7 +14,7 @@ class Player {
     textSize(64);
     fill(255);
     noStroke();
-    text(this.name, this.x + this.r / 2, this.y);
+    text(this.name, this.x + this.r / 2 + 4, this.y);
   }
 
   move(amount) {

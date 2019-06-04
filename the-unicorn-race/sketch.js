@@ -6,7 +6,7 @@ let soundClassifier;
 let video;
 
 function preload() {
-  bkg = loadImage('data/sky_small.png');
+  bkg = loadImage('data/background.jpg');
   for (let i = 0; i < 4; i++) {
     images[i] = loadImage(`data/player${i}.png`);
   }
@@ -19,7 +19,7 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(899, 500);
+  let canvas = createCanvas(800, 450);
   imageClassifier.classify(video, gotImageResults);
   soundClassifier.classify(gotSoundResults);
   players[0] = new Player(100, images[0], 'player 1');
