@@ -2,6 +2,7 @@
 // https://github.com/ttezel/twit
 const Twit = require('twit');
 const express = require('express');
+const base64Img = require('base64-img');
 
 require('dotenv').config();
 
@@ -67,4 +68,21 @@ app.post('/tweet', (request, res) => {
       res.json({ tweet: data.text });
     }
   }
+});
+
+// Backup local runway server
+
+const rainbows = [];
+let index = 0;
+for (let i = 1; i < 10; i++) {
+  const data = base64Img.base64Sync(`rainbows/rainbow${i}.jpeg`);
+  rainbows.push(data);
+}
+
+app.post('/query', (request, response) => {
+  let r = Math.floor(Math.random() * rainbows.length);
+  const data = {
+    image: rainbows[r]
+  };
+  response.send(data);
 });
