@@ -70,19 +70,19 @@ app.post('/tweet', (request, res) => {
   }
 });
 
-// Backup local runway server
+// Backup local server too simulate Runway, commenting out for now!
 
-const rainbows = [];
-let index = 0;
-for (let i = 1; i < 10; i++) {
-  const data = base64Img.base64Sync(`rainbows/rainbow${i}.jpeg`);
-  rainbows.push(data);
-}
+// const rainbows = [];
+// let index = 0;
+// for (let i = 1; i < 10; i++) {
+//   const data = base64Img.base64Sync(`rainbows/rainbow${i}.jpeg`);
+//   rainbows.push(data);
+// }
 
-app.post('/query', (request, response) => {
-  let r = Math.floor(Math.random() * rainbows.length);
-  const data = {
-    image: rainbows[r]
-  };
-  response.send(data);
-});
+// app.post('/query', (request, response) => {
+//   let r = Math.floor(Math.random() * rainbows.length);
+//   const data = {
+//     image: rainbows[r]
+//   };
+//   response.send(data);
+// });
