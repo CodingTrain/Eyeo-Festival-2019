@@ -25,7 +25,7 @@ This repository documents the Coding Train live demonstration at the [Eyeo Festi
 * [Joey Lee](https://jk-lee.com/work/) and [Yining Shi](http://1023.io/) for technical support and design help with the slides.
 * Everyone from [RunwayML](https://runwayml.com) especially [Anastasis Germanidis](https://agermanidis.com/) for the Rainbow checkpoint in StyleGAN.
 * [Google Creative Lab](https://github.com/googlecreativelab) and the entire team behind Teachable Machine.
-* [TensorFlow.js] contributors.
+* [TensorFlow.js](https://www.tensorflow.org/js/) developers.
 * The entire [ml5.js](https://ml5js.org/) team.
 * [p5.js contributors](https://github.com/processing/p5.js#contributors) especially [Cassie Tarakajian](https://cassietarakajian.com/), lead developer of the p5 web editor.
 * [Sam Lavigne](https://lav.io/) for [videogrep](https://github.com/antiboredom/videogrep) and the [whoops supercut](https://youtu.be/QYjPBcqo1-s).
