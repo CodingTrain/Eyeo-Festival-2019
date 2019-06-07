@@ -8,6 +8,7 @@ This repository documents the Coding Train live demonstration at the [Eyeo Festi
 * [Blank Starter Code](https://editor.p5js.org/codingtrain/sketches/Oyp_i5B11)
 * [Final code exactly as written](https://editor.p5js.org/codingtrain/sketches/XYpbFSb2I)
 * [Version of code that does not require Runway](https://editor.p5js.org/codingtrain/sketches/TM6CtLHhb)
+* [@EyeoRainbows](https://twitter.com/eyeorainbows)
 * [Slides](https://docs.google.com/presentation/d/1ED3YSwd5tEKbjGqZFnZBSzMkA-Mx0T6Hvk5K76LKIMo/edit?usp=sharing)
 
 ## Technology and Tools Used 
