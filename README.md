@@ -9,7 +9,7 @@ This repository documents the Coding Train live demonstration at the [Eyeo Festi
 * [Final code exactly as written](https://editor.p5js.org/codingtrain/sketches/XYpbFSb2I)
 * [Version of code that does not require Runway](https://editor.p5js.org/codingtrain/sketches/TM6CtLHhb)
 * [@EyeoRainbows](https://twitter.com/eyeorainbows)
-* [Slides](https://docs.google.com/presentation/d/1ED3YSwd5tEKbjGqZFnZBSzMkA-Mx0T6Hvk5K76LKIMo/edit?usp=sharing)
+* [Slides](https://docs.google.com/presentation/d/e/2PACX-1vQ3Urh0LZAsCHGDvunaQNs8rgGGi754sZkJYDVkMppEWzlXJyd5uEPY9eXoEt0WWOxN94CnkzJhzviL/pub?start=false&loop=true&delayms=3000)
 
 ## Technology and Tools Used 
 * [p5.js](https://p5js.org) from The Processing Foundation and contributors
